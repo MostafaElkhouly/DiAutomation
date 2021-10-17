@@ -44,7 +44,23 @@ namespace DiAnnotations
 
                 Di di =
                     (Di)Attribute.GetCustomAttribute(item, typeof(Di));
-                services.AddTransient((Type)di.Int, (Type)di.Imp);
+
+                if (!di.IsActive)
+                    continue;
+
+                switch (di.RequestType)
+                {
+                    case RequestType.Scoped:
+                        services.AddScoped((Type)di.Int, (Type)di.Imp);
+                        break;
+                    case RequestType.Singletone:
+                        services.AddSingleton((Type)di.Int, (Type)di.Imp);
+                        break;
+                    case RequestType.Transient:
+                    default:
+                        services.AddTransient((Type)di.Int, (Type)di.Imp);
+                        break;
+                }
             }
         }
     }
