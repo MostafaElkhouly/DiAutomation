@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DiAnnotations
+namespace DiAnnotations.Anotations
 {
     [AttributeUsage(AttributeTargets.Class)]
     public class Di : Attribute

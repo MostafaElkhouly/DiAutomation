@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DiAnnotations
+namespace DiAnnotations.Execute
 {
     public static class ExecuteDi
     {
