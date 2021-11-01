@@ -51,14 +51,14 @@ namespace DiAnnotations.Execute
                 switch (di.RequestType)
                 {
                     case RequestType.Scoped:
-                        services.AddScoped((Type)di.Int, (Type)di.Imp);
+                        services.AddScoped(di.Int, di.Imp);
                         break;
                     case RequestType.Singletone:
-                        services.AddSingleton((Type)di.Int, (Type)di.Imp);
+                        services.AddSingleton(di.Int, di.Imp);
                         break;
                     case RequestType.Transient:
                     default:
-                        services.AddTransient((Type)di.Int, (Type)di.Imp);
+                        services.AddTransient(di.Int, di.Imp);
                         break;
                 }
             }
